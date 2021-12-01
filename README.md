@@ -1,2 +1,3 @@
 # WhatsNewView
-A nice way to present your new features in your SwiftUI app.
+
+🚧 Work in progress... It will be ready soon. 🚧
