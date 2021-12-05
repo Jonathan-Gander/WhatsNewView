@@ -4,6 +4,9 @@
 
 It is really easy to use and to add to your app. It only takes an array of `WhatsNewFeature` (features to present) as mandatory parameter. All other parameters are here to customize visual aspect and interactions.
 
+
+If you're using UIKit in your project, have a look on [Jonathan-Gander/WhatsNewViewController](https://github.com/Jonathan-Gander/WhatsNewViewController).
+
 ## Features
 
 - Title and subtitle
@@ -24,6 +27,94 @@ Add `WhatsNewView` package to your project.
 In Xcode 13.1: `File` -> `Add Packages...` then enter my project GitHub URL:  
 `https://github.com/Jonathan-Gander/WhatsNewView`
 
+### Quick start
+
+In file you want to add a chart:
+
+```swift
+import WhatsNewView
+```
+
+Then create a `WhatsNewView` by passing your `WhatsNewFeature` array. You can also customize your view UI and interaction with other optional parameters.
+
+Details about each parameter:
+
+- `features`: Array of `WhatsNewFeature` to display
+- `mainColor`: Tint color for features images, Continue button and More info button
+- `titleText`: View title
+- `subtitleText`: View subtitle. Set to `nil` to hide subtitle.
+- `continueText`: Text for Continue button. Set to `nil` to hide Continue button.
+- `MoreInfoText`: Text for More info button. Set to `nil` to hide More info button.
+- `continueButtonAction`: Function called when Continue button is tapped.
+- `moreInfoButtonAction`: Function called when More info button is tapped.
+- `featureTapAction`: Function called when a feature is tapped. It takes two parameters: tapped feature, and feature index (in `features` array). Set to `nil` so `features` are not buttons (just views).
+
+### Complete example
+
+Here is as example of a view displaying a `WhatsNewView` as a sheet.
+
+```swift
+struct ContentView: View {
+    @State private var showView = false
+    @State private var outputText = ""
+
+    private let features = [
+        WhatsNewFeature(title: "First amazing feature", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan pretium arcu, sit amet porta lectus ultrices sed.", image: Image(systemName: "paintbrush")),
+        WhatsNewFeature(title: "Second feature", text: "Sed lacinia tortor nunc, at eleifend mi porta eu.", image: Image(systemName: "globe.europe.africa.fill")),
+        WhatsNewFeature(title: "Another one", text: "Sed ex risus, vehicula et finibus et, venenatis vitae nisi.", image: Image(systemName: "megaphone")),
+    ]
+    
+    var body: some View {
+        NavigationView {
+            
+            VStack {
+                Button("Display WhatsNewView") {
+                    outputText = ""
+                    showView.toggle()
+                }
+                .font(.headline)
+                
+                .sheet(isPresented: $showView) {
+                    WhatsNewView(
+                        features: features,
+                        mainColor: .green,
+                        titleText: "What's New",
+                        subtitleText: "In version 1.42",
+                        continueText: "Continue",
+                        moreInfoText: "More info...",
+                        continueButtonAction: whatsNewContinue,
+                        moreInfoButtonAction: whatsNewMoreInfo,
+                        featureTapAction: whatsNewDidTap(feature:atIndex:)
+                    )
+                }
+                    
+                Text(outputText)
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                    .padding()
+            
+            }
+            
+            .navigationTitle("WhatsNewView demo")
+        }
+    }
+    
+    func whatsNewContinue() {
+        outputText = "Continue button tapped"
+        showView.toggle()
+    }
+    
+    func whatsNewMoreInfo() {
+        outputText = "More info button tapped"
+        showView.toggle()
+    }
+    
+    func whatsNewDidTap(feature: WhatsNewFeature, atIndex index: Int) {
+        outputText = "Feature at index \(index) tapped: \(feature.title)"
+        showView.toggle()
+    }
+}
+```
 
 ## They're already using it
 
