@@ -29,7 +29,7 @@ In Xcode 13.1: `File` -> `Add Packages...` then enter my project GitHub URL:
 
 ### Quick start
 
-In file you want to add a chart:
+In file you want to display `WhatsNewView`:
 
 ```swift
 import WhatsNewView
@@ -115,6 +115,17 @@ struct ContentView: View {
     }
 }
 ```
+
+## Screenshots
+
+Here are few screenshots (with random texts!) of `WhatsNewView`:
+
+![Simulator Screen Shot - iPhone 12 - 2021-12-05 at 17 19 44](https://user-images.githubusercontent.com/1695222/144754570-b8f77b31-3140-48e3-bd25-d5ef3d41c1a7.png)
+![Simulator Screen Shot - iPhone 12 - 2021-12-05 at 17 21 15](https://user-images.githubusercontent.com/1695222/144754589-085ed154-f22f-4fb3-b1e7-80480ba57fba.png)
+
+![Simulator Screen Shot - iPhone 12 - 2021-12-05 at 17 22 00](https://user-images.githubusercontent.com/1695222/144754613-9cdc5e4e-9326-4765-97d1-83b212ad215d.png)
+![Simulator Screen Shot - iPhone 12 - 2021-12-05 at 17 23 01](https://user-images.githubusercontent.com/1695222/144754643-37da1eae-9ab8-4d06-b92b-d01ddfb86db5.png)
+
 
 ## They're already using it
 
