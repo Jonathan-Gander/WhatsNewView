@@ -124,9 +124,15 @@ public struct WhatsNewView: View {
                 }
                 
                 if let continueText = continueText {
-                    Button(continueText) {
+                    Button(action: {
                         if let continueButtonAction = continueButtonAction {
                             continueButtonAction()
+                        }
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text(continueText)
+                            Spacer()
                         }
                     }
                     .font(.headline)
