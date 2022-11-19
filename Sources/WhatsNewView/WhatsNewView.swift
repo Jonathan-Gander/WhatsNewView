@@ -83,6 +83,7 @@ public struct WhatsNewView: View {
                 
                 // Header (title + subtitle)
                 WhatsNewHeaderView(title: titleText, subtitle: subtitleText)
+                    .padding(.top)
                 
                 // Features list
                 // Display them as button (if featureTapAction is set) or simple views
