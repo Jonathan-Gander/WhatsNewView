@@ -108,6 +108,7 @@ public struct WhatsNewView: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 20)
+            .padding(.top)
             
             // Bottom buttons
             VStack {
