@@ -113,7 +113,7 @@ public struct WhatsNewView: View {
             // Bottom buttons
             VStack {
                 if let moreInfoText = moreInfoText {
-                    Button(moreInfoText) {
+                    Button(.init(moreInfoText)) {
                         if let moreInfoButtonAction = moreInfoButtonAction {
                             moreInfoButtonAction()
                         }
@@ -133,7 +133,7 @@ public struct WhatsNewView: View {
                     }) {
                         HStack {
                             Spacer()
-                            Text(continueText)
+                            Text(.init(continueText))
                             Spacer()
                         }
                     }

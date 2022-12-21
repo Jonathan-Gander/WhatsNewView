@@ -17,7 +17,7 @@ struct WhatsNewHeaderView: View {
     var body: some View {
         
         VStack {
-            Text(title)
+            Text(.init(title))
                 .font(.custom("Helvetica Neue", size: 34))
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
@@ -25,7 +25,7 @@ struct WhatsNewHeaderView: View {
                 .padding(.bottom, 5)
             
             if let subtitle = subtitle {
-                Text(subtitle)
+                Text(.init(subtitle))
                     .font(.body)
                     .multilineTextAlignment(.center)
             }

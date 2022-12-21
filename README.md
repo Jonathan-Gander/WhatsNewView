@@ -49,6 +49,8 @@ Details about each parameter:
 - `moreInfoButtonAction`: Function called when More info button is tapped.
 - `featureTapAction`: Function called when a feature is tapped. It takes two parameters: tapped feature, and feature index (in `features` array). Set to `nil` so `features` are not buttons (just views).
 
+All texts can be translation keys from `Localizable.strings`.
+
 ### Complete example
 
 Here is as example of a view displaying a `WhatsNewView` as a sheet.

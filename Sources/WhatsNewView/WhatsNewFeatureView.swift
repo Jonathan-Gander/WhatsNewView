@@ -30,11 +30,11 @@ struct WhatsNewFeatureView: View {
             
             
             VStack (alignment: .leading, spacing: 5) {
-                Text(title)
+                Text(.init(title))
                     .font(.headline)
                     .multilineTextAlignment(.leading)
                 
-                Text(text)
+                Text(.init(text))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
